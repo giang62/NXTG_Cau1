@@ -87,9 +87,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Đăng nhập" />
+                android:text="Đăng nhập"
+                android:textSize="24sp" />
 
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnThoat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thoát"
+        android:textSize="24sp" />
 
 </LinearLayout>

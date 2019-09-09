@@ -1,16 +1,20 @@
 package com.example.student.xtg_cau1;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnDangnhap;
+    AlertDialog.Builder dialog;
+    Button btnDangnhap,btnThoat;
     EditText edTk,edMK;
     CheckBox cb;
     @Override
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         edTk = findViewById(R.id.edTK);
         edMK = findViewById(R.id.edMK);
         cb = findViewById(R.id.checkBox);
+        btnThoat = findViewById(R.id.btnThoat);
 
         final Toast toast = Toast.makeText(this,"",Toast.LENGTH_SHORT);
 
@@ -44,6 +49,32 @@ public class MainActivity extends AppCompatActivity {
                      }
             }
         });
+
+        btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                thoat();
+            }
+        });
+    }
+
+    private void thoat(){
+        dialog = new AlertDialog.Builder(MainActivity.this);
+        dialog.setTitle("Thông báo");
+        dialog.setMessage("Bạn có muốn thoát không?");
+        dialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        dialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        dialog.show();
     }
 
 }
